@@ -14,359 +14,60 @@ const menuBurger = document.querySelector('.burger')
 const burger = document.querySelector('.menu-burger')
 const cancelCross = document.querySelector('.cancel')
 const body = document.querySelector('.body')
-const headerLogo = document.querySelector('.logo')
 
-menuBurger.addEventListener('click', function (event){
+menuBurger.addEventListener('click', ()=>{
     burger.style.display = 'block'
     burger.style.height = '900px'
     body.style.overflow = 'hidden'
 })
 
 
-cancelCross.addEventListener('click', function (event){
+cancelCross.addEventListener('click', ()=>{
     burger.style.display = 'none'
     body.style.overflow = 'visible'
     burger.style.height = 'auto'
 })
 
-burger.addEventListener('click', function (event){
+burger.addEventListener('click', ()=>{
     burger.style.display = 'none'
     body.style.overflow = 'visible'
     burger.style.height = 'auto'
 })
 
-input.addEventListener('input',function (event){
+input.addEventListener('input',()=>{
     submitButton.classList.add("valid")
 })
 
-one.addEventListener('click',function (event){
-    one.classList.add('orange')
-    two.classList.remove('orange')
-    three.classList.remove('orange')
-    four.classList.remove('orange')
-    five.classList.remove('orange')
-    six.classList.remove('orange')
-    seven.classList.remove('orange')
-    eight.classList.remove('orange')
-    amount.value = one.innerHTML.slice(1, one.length)
-    point[0].classList.add('active')
-    point[1].classList.remove('active')
-    point[2].classList.remove('active')
-    point[3].classList.remove('active')
-    point[4].classList.remove('active')
-    point[5].classList.remove('active')
-    point[6].classList.remove('active')
-    point[7].classList.remove('active')
+let buttons = [one, two, three, four, five, six, seven, eight];
+let points = [point[0], point[1], point[2], point[3], point[4], point[5], point[6], point[7]];
 
-})
-two.addEventListener('click',function (event){
-    two.classList.add('orange')
-    one.classList.remove('orange')
-    three.classList.remove('orange')
-    four.classList.remove('orange')
-    five.classList.remove('orange')
-    six.classList.remove('orange')
-    seven.classList.remove('orange')
-    eight.classList.remove('orange')
-    amount.value = two.innerHTML.slice(1, two.length)
-    point[1].classList.add('active')
-    point[0].classList.remove('active')
-    point[2].classList.remove('active')
-    point[3].classList.remove('active')
-    point[4].classList.remove('active')
-    point[5].classList.remove('active')
-    point[6].classList.remove('active')
-    point[7].classList.remove('active')
-})
+buttons.forEach((button, index) => {
+    button.addEventListener('click', ()=> {
+        buttons.forEach((btn, btnIndex) => {
+            if(btnIndex === index) {
+                btn.classList.add('orange');
+                points[btnIndex].classList.add('active');
+                amount.value = btn.innerHTML.slice(1, btn.length);
+            } else {
+                btn.classList.remove('orange');
+                points[btnIndex].classList.remove('active');
+            }
+        });
+    });
+});
 
-three.addEventListener('click',function (event){
-    three.classList.add('orange')
-    two.classList.remove('orange')
-    one.classList.remove('orange')
-    four.classList.remove('orange')
-    five.classList.remove('orange')
-    six.classList.remove('orange')
-    seven.classList.remove('orange')
-    eight.classList.remove('orange')
-    amount.value = three.innerHTML.slice(1, three.length)
-    point[2].classList.add('active')
-    point[1].classList.remove('active')
-    point[0].classList.remove('active')
-    point[3].classList.remove('active')
-    point[4].classList.remove('active')
-    point[5].classList.remove('active')
-    point[6].classList.remove('active')
-    point[7].classList.remove('active')
-})
-four.addEventListener('click',function (event){
-    four.classList.add('orange')
-    two.classList.remove('orange')
-    three.classList.remove('orange')
-    one.classList.remove('orange')
-    five.classList.remove('orange')
-    six.classList.remove('orange')
-    seven.classList.remove('orange')
-    eight.classList.remove('orange')
-    amount.value = four.innerHTML.slice(1, four.length)
-    point[3].classList.add('active')
-    point[1].classList.remove('active')
-    point[0].classList.remove('active')
-    point[2].classList.remove('active')
-    point[4].classList.remove('active')
-    point[5].classList.remove('active')
-    point[6].classList.remove('active')
-    point[7].classList.remove('active')
-})
-five.addEventListener('click',function (event){
-    five.classList.add('orange')
-    two.classList.remove('orange')
-    three.classList.remove('orange')
-    four.classList.remove('orange')
-    one.classList.remove('orange')
-    six.classList.remove('orange')
-    seven.classList.remove('orange')
-    eight.classList.remove('orange')
-    amount.value = five.innerHTML.slice(1, five.length)
-    point[4].classList.add('active')
-    point[1].classList.remove('active')
-    point[0].classList.remove('active')
-    point[3].classList.remove('active')
-    point[2].classList.remove('active')
-    point[5].classList.remove('active')
-    point[6].classList.remove('active')
-    point[7].classList.remove('active')
-})
-six.addEventListener('click',function (event){
-    six.classList.add('orange')
-    two.classList.remove('orange')
-    three.classList.remove('orange')
-    four.classList.remove('orange')
-    five.classList.remove('orange')
-    one.classList.remove('orange')
-    seven.classList.remove('orange')
-    eight.classList.remove('orange')
-    amount.value = six.innerHTML.slice(1, six.length)
-    point[5].classList.add('active')
-    point[1].classList.remove('active')
-    point[0].classList.remove('active')
-    point[3].classList.remove('active')
-    point[4].classList.remove('active')
-    point[2].classList.remove('active')
-    point[6].classList.remove('active')
-    point[7].classList.remove('active')
-})
-seven.addEventListener('click',function (event){
-    seven.classList.add('orange')
-    two.classList.remove('orange')
-    three.classList.remove('orange')
-    four.classList.remove('orange')
-    five.classList.remove('orange')
-    six.classList.remove('orange')
-    one.classList.remove('orange')
-    eight.classList.remove('orange')
-    amount.value = seven.innerHTML.slice(1, seven.length)
-    point[6].classList.add('active')
-    point[1].classList.remove('active')
-    point[0].classList.remove('active')
-    point[3].classList.remove('active')
-    point[4].classList.remove('active')
-    point[5].classList.remove('active')
-    point[2].classList.remove('active')
-    point[7].classList.remove('active')
-})
-eight.addEventListener('click',function (event){
-    eight.classList.add('orange')
-    two.classList.remove('orange')
-    three.classList.remove('orange')
-    four.classList.remove('orange')
-    five.classList.remove('orange')
-    six.classList.remove('orange')
-    seven.classList.remove('orange')
-    one.classList.remove('orange')
-    amount.value = eight.innerHTML.slice(1, eight.length)
-    point[7].classList.add('active')
-    point[1].classList.remove('active')
-    point[0].classList.remove('active')
-    point[3].classList.remove('active')
-    point[4].classList.remove('active')
-    point[5].classList.remove('active')
-    point[6].classList.remove('active')
-    point[2].classList.remove('active')
-})
-
-
-
-
-amount.addEventListener('input', function (event){
-    if(amount.value===eight.textContent.slice(1, eight.length)){
-        eight.classList.add('orange')
-        point[7].classList.add('active')
-        point[1].classList.remove('active')
-        point[0].classList.remove('active')
-        point[3].classList.remove('active')
-        point[4].classList.remove('active')
-        point[5].classList.remove('active')
-        point[6].classList.remove('active')
-        point[2].classList.remove('active')
-        one.classList.remove('orange')
-        two.classList.remove('orange')
-        three.classList.remove('orange')
-        four.classList.remove('orange')
-        five.classList.remove('orange')
-        six.classList.remove('orange')
-        seven.classList.remove('orange')
-    }
-})
-amount.addEventListener('input', function (event){
-    if(amount.value===seven.textContent.slice(1, eight.length)){
-        seven.classList.add('orange')
-        point[6].classList.add('active')
-        point[1].classList.remove('active')
-        point[0].classList.remove('active')
-        point[3].classList.remove('active')
-        point[4].classList.remove('active')
-        point[5].classList.remove('active')
-        point[2].classList.remove('active')
-        point[7].classList.remove('active')
-        one.classList.remove('orange')
-        two.classList.remove('orange')
-        three.classList.remove('orange')
-        four.classList.remove('orange')
-        five.classList.remove('orange')
-        six.classList.remove('orange')
-        eight.classList.remove('orange')
-
-    }
-})
-amount.addEventListener('input', function (event){
-    if(amount.value===six.textContent.slice(1, eight.length)){
-        six.classList.add('orange')
-        point[5].classList.add('active')
-        point[1].classList.remove('active')
-        point[0].classList.remove('active')
-        point[3].classList.remove('active')
-        point[4].classList.remove('active')
-        point[7].classList.remove('active')
-        point[6].classList.remove('active')
-        point[2].classList.remove('active')
-        one.classList.remove('orange')
-        two.classList.remove('orange')
-        three.classList.remove('orange')
-        four.classList.remove('orange')
-        five.classList.remove('orange')
-        seven.classList.remove('orange')
-        eight.classList.remove('orange')
-    }
-})
-amount.addEventListener('input', function (event){
-    if(amount.value===five.textContent.slice(1, eight.length)){
-        five.classList.add('orange')
-        point[4].classList.add('active')
-        point[1].classList.remove('active')
-        point[0].classList.remove('active')
-        point[3].classList.remove('active')
-        point[7].classList.remove('active')
-        point[5].classList.remove('active')
-        point[6].classList.remove('active')
-        point[2].classList.remove('active')
-        one.classList.remove('orange')
-        two.classList.remove('orange')
-        three.classList.remove('orange')
-        four.classList.remove('orange')
-        seven.classList.remove('orange')
-        eight.classList.remove('orange')
-        six.classList.remove('orange')
-    }
-})
-amount.addEventListener('input', function (event){
-    if(amount.value===four.textContent.slice(1, eight.length)){
-        four.classList.add('orange')
-        point[3].classList.add('active')
-        point[1].classList.remove('active')
-        point[0].classList.remove('active')
-        point[7].classList.remove('active')
-        point[4].classList.remove('active')
-        point[5].classList.remove('active')
-        point[6].classList.remove('active')
-        point[2].classList.remove('active')
-        one.classList.remove('orange')
-        two.classList.remove('orange')
-        three.classList.remove('orange')
-        five.classList.remove('orange')
-        seven.classList.remove('orange')
-        eight.classList.remove('orange')
-        six.classList.remove('orange')
-    }
-})
-amount.addEventListener('input', function (event){
-    if(amount.value===three.textContent.slice(1, eight.length)){
-        three.classList.add('orange')
-        point[2].classList.add('active')
-        point[1].classList.remove('active')
-        point[0].classList.remove('active')
-        point[3].classList.remove('active')
-        point[4].classList.remove('active')
-        point[5].classList.remove('active')
-        point[6].classList.remove('active')
-        point[7].classList.remove('active')
-        one.classList.remove('orange')
-        two.classList.remove('orange')
-        five.classList.remove('orange')
-        four.classList.remove('orange')
-        seven.classList.remove('orange')
-        eight.classList.remove('orange')
-        six.classList.remove('orange')
-    }
-})
-amount.addEventListener('input', function (event){
-    if(amount.value===two.textContent.slice(1, eight.length)){
-        two.classList.add('orange')
-        point[1].classList.add('active')
-        point[7].classList.remove('active')
-        point[0].classList.remove('active')
-        point[3].classList.remove('active')
-        point[4].classList.remove('active')
-        point[5].classList.remove('active')
-        point[6].classList.remove('active')
-        point[2].classList.remove('active')
-        one.classList.remove('orange')
-        three.classList.remove('orange')
-        five.classList.remove('orange')
-        four.classList.remove('orange')
-        seven.classList.remove('orange')
-        eight.classList.remove('orange')
-        six.classList.remove('orange')
-    }
-})
-amount.addEventListener('input', function (event){
-    if(amount.value===one.textContent.slice(1, eight.length)){
-        one.classList.add('orange')
-        point[0].classList.add('active')
-        point[1].classList.remove('active')
-        point[7].classList.remove('active')
-        point[3].classList.remove('active')
-        point[4].classList.remove('active')
-        point[5].classList.remove('active')
-        point[6].classList.remove('active')
-        point[2].classList.remove('active')
-        two.classList.remove('orange')
-        three.classList.remove('orange')
-        five.classList.remove('orange')
-        four.classList.remove('orange')
-        seven.classList.remove('orange')
-        eight.classList.remove('orange')
-        six.classList.remove('orange')
-        if(amount.value!==one.textContent.slice(1, eight.length)){
-            two.classList.remove('orange')
-            three.classList.remove('orange')
-            five.classList.remove('orange')
-            four.classList.remove('orange')
-            seven.classList.remove('orange')
-            eight.classList.remove('orange')
-            six.classList.remove('orange')
-            one.classList.remove('orange')
-            point[7].classList.remove('active')
-
+amount.addEventListener('input', ()=> {
+    buttons.forEach((button, index) => {
+        if(amount.value === button.textContent.slice(1, button.length)) {
+            buttons.forEach((btn, btnIndex) => {
+                if(btnIndex === index) {
+                    btn.classList.add('orange');
+                    points[btnIndex].classList.add('active');
+                } else {
+                    btn.classList.remove('orange');
+                    points[btnIndex].classList.remove('active');
+                }
+            });
         }
-    }
-})
+    });
+});
